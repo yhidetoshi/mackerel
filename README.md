@@ -1,9 +1,5 @@
 # mackerel
 
-
-# mackerel
-mackerel検証
-
 #### agentインストール
 ##### Amazon Linux
 
