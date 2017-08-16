@@ -67,3 +67,14 @@ Procs OK: Found 1 matching processes; cmd //usr/sbin/redis-server/; user /redis/
 [plugin.checks.check_redis]
 command = "check-procs -p /usr/sbin/redis-server -W 1 -C 1 --user redis"
 ```
+
+
+## AWSのマネージドサービスを監視する
+
+- AWSとマカレルを連携する方法
+  - `https://mackerel.io/ja/docs/entry/integrations/aws`
+  - IAMロールに必要なサービスのReadOnly権限を付与する
+
+- ELBとRDSをNameタグで絞る場合は以下の通り
+  - `Name:hoge-db,Name:hoge-lb
+
