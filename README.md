@@ -76,5 +76,5 @@ command = "check-procs -p /usr/sbin/redis-server -W 1 -C 1 --user redis"
   - IAMロールに必要なサービスのReadOnly権限を付与する
 
 - ELBとRDSをNameタグで絞る場合は以下の通り
-  - `Name:hoge-db,Name:hoge-lb
+  - `Name:hoge-db,Name:hoge-lb`
 
