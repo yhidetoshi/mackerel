@@ -78,3 +78,8 @@ command = "check-procs -p /usr/sbin/redis-server -W 1 -C 1 --user redis"
 - ELBとRDSをNameタグで絞る場合は以下の通り
   - `Name:hoge-db,Name:hoge-lb`
 
+- 死活監視(マカレルサイトの引用)
+  - mackerel-agentをインストール・起動 したホストに対しては、死活監視が自動的に行なわれます。
+  - 死活監視はmackerel-agentからのメトリックの定期投稿を監視しています。
+  - 一定期間この投稿がない場合、Mackerelはそのホストに異常が発生したと判断してアラートを発生させます。
+    - 約7分間データの投稿がないと死活監視にひっかかりました。
