@@ -1,14 +1,27 @@
 # mackerel
 
-#### agentインストール
-##### Amazon Linux
+## mackrel-CLIのセットアップ
+
+- Mac
+```
+$ brew tap mackerelio/mackerel-agent
+$ brew install mkr
+$ go get github.com/mackerelio/mkr
+```
+- `export MACKEREL_APIKEY=<API key>`
+
+- サービス名を指定してホスト名の一覧を取得する
+  - `$ mkr hosts --service <SERVICENAME> | jq '.[].name'`
+
+## agentインストール
+### Amazon Linux
 
 - Agentインストール
   - `# curl -fsSL https://mackerel.io/file/script/amznlinux/setup-all-yum.sh | MACKEREL_APIKEY='XXXX' sh`
 - 自動起動設定
   - `# chkconfig mackerel-agent on`
 
-#### Nginxのプロセスを監視
+### Nginxのプロセスを監視
 - rpmパッケージの場合
   - `# yum -y install mackerel-check-plugins`
 
@@ -21,7 +34,7 @@ apikey = "XXX"
 command = "check-procs -p nginx -W 2 -C 2 --user nginx"
 ```
 
-#### Fluentd(td-agent)を監視
+### Fluentd(td-agent)を監視
 
 `# ps -ef | grep td-agent`
 ```
