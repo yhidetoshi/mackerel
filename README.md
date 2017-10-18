@@ -80,7 +80,14 @@ Procs OK: Found 1 matching processes; cmd //usr/sbin/redis-server/; user /redis/
 [plugin.checks.check_redis]
 command = "check-procs -p /usr/sbin/redis-server -W 1 -C 1 --user redis"
 ```
-
+### 退役ホストを戻す
+```
+service mackerel-agent stop
+cd /var/lib/mackerel-agent
+mv id /tmp/
+service mackerel-agent start
+diff -su /tmp/id id   # 違うと出ていればOK
+```
 
 ## AWSのマネージドサービスを監視する
 
