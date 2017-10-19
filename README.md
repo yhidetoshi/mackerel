@@ -10,8 +10,68 @@ $ go get github.com/mackerelio/mkr
 ```
 - `export MACKEREL_APIKEY=<API key>`
 
-- サービス名を指定してホスト名の一覧を取得する
-  - `$ mkr hosts --service <SERVICENAME> | jq '.[].name'`
+##### コマンド参照
+- APIドキュメント(公式)
+  - https://mackerel.io/ja/api-docs/
+- `$ mkr --help`
+
+```
+NAME:
+   mkr - A CLI tool for mackerel.io
+USAGE:
+   mkr [global options] command [command options] [arguments...]
+VERSION:
+   0.21.0 (rev:abe6e7e)
+AUTHOR:
+   Hatena Co., Ltd.
+COMMANDS:
+     status       Show the host
+     hosts        List hosts
+     create       Create a new host
+     update       Update the host
+     throw        Post metric values
+     fetch        Fetch latest metric values
+     retire       Retire hosts
+     services     List services
+     monitors     Manipulate monitors
+     alerts       Retrieve/Close alerts
+     dashboards
+     annotations  Manipulate graph annotations
+     help, h      Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --conf value     Config file path (default: "/Users/yajima/Library/mackerel-agent/mackerel-agent.conf")
+   --apibase value  API Base (default: "https://api.mackerelio.com")
+   --help, -h       show help
+   --version, -v    print the version
+```
+
+
+#### GETリクエスト
+- GET
+  - ホスト一覧を取得
+    - サービスに紐づくホスト一覧を取得(退役ホストを除く)
+        - `$ mkr hosts --service <SERVICENAME>`
+        - `$ mkr hosts --service Beaconnect-Prd | jq '.[].name'`
+  - ホストが(working|standby|poweroff|maintenance)状態のインスタンスを取得
+      - `mkr hosts --status working`
+      - `mkr hosts --status standby`
+      - `mkr hosts --status poweroff`
+      - `mkr hosts --status maintenance`
+  - Serviceの一覧を取得
+      - `mkr services`
+  - 監視設定の一覧を取得
+      - `mkr monitors`
+  - アラート(現在出ている)の一覧を取得
+      -  `mkr alerts`
+
+#### POSTリクエスト
+
+- あるホストを退役させる
+  - `mkr retire <HOSTID>`
+
+
+
 
 ## agentインストール
 ### Amazon Linux
