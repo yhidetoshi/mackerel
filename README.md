@@ -75,7 +75,29 @@ GLOBAL OPTIONS:
 
 - 現在の監視状態をjsonでpullする
   - `mkr monitors pull`
+- git管理にして、monitors.jsonを編集
+- mkr で 反映する
+  - `mkr monitors push`
+```
+(Response)
+mkr monitors push
+      info Update a rule.
+{
+  "id": "XXXX",
+  "name": "CPU %",
+  "memo": "CPU使用率監視",
+  "type": "host",
+  "metric": "cpu%",
+  "operator": ">",
+  "warning": 85,
+  "critical": 90,
+  "duration": 5,
+  "scopes": [
+    "Hoge-stg"
+  ]
+},
 
+```
 
 
 ## agentインストール
