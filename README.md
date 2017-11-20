@@ -119,7 +119,8 @@ Summary: 1 modify, 0 append, 0 remove
 +  "warning": 80
  }
 ```
-
+- dry-run実行
+  - `mkr monitors push --dry-run`
 
 ## agentインストール
 ### Amazon Linux
