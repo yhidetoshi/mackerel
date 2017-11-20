@@ -96,7 +96,28 @@ mkr monitors push
     "Hoge-stg"
   ]
 },
+```
 
+- Mackerelとローカルファイルとの差分を確認する
+`$ mkr monitors diff`
+
+```
+Summary: 1 modify, 0 append, 0 remove
+
+ {
+   "critical": 90,
+   "duration": 5,
+   "memo": "CPU使用率監視",
+   "metric": "cpu%",
+   "name": "CPU %",
+   "operator": ">",
+   "scopes": [
+     "Hoge-stg"
+   ],
+   "type": "host",
+-  "warning": 85
++  "warning": 80
+ }
 ```
 
 
