@@ -71,6 +71,11 @@ GLOBAL OPTIONS:
   - `mkr retire <HOSTID>`
 
 
+## Mackerelの監視設定をgitで管理する
+
+- 現在の監視状態をjsonでpullする
+  - `mkr monitors pull`
+
 
 
 ## agentインストール
