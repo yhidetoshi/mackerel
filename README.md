@@ -1,6 +1,6 @@
 # mackerel
 
-## mackrel-CLIのセットアップ
+# mackrel-CLIのセットアップ
 
 - Mac
 ```
@@ -47,7 +47,7 @@ GLOBAL OPTIONS:
 ```
 
 
-#### GETリクエスト
+### GETリクエスト
 - GET
   - ホスト一覧を取得
     - サービスに紐づくホスト一覧を取得(退役ホストを除く)
@@ -65,13 +65,13 @@ GLOBAL OPTIONS:
   - アラート(現在出ている)の一覧を取得
       -  `mkr alerts`
 
-#### POSTリクエスト
+### POSTリクエスト
 
 - あるホストを退役させる
   - `mkr retire <HOSTID>`
 
 
-## Mackerelの監視設定をgitで管理する
+# Mackerelの監視設定をgitで管理する
 
 - 現在の監視状態をjsonでpullする
   - `mkr monitors pull`
@@ -122,15 +122,15 @@ Summary: 1 modify, 0 append, 0 remove
 - dry-run実行
   - `mkr monitors push --dry-run`
 
-## agentインストール
-### Amazon Linux
+# agentインストール & プロセス監視
+## Amazon Linux
 
 - Agentインストール
   - `# curl -fsSL https://mackerel.io/file/script/amznlinux/setup-all-yum.sh | MACKEREL_APIKEY='XXXX' sh`
 - 自動起動設定
   - `# chkconfig mackerel-agent on`
 
-### Nginxのプロセスを監視
+## Nginxのプロセスを監視
 - rpmパッケージの場合
   - `# yum -y install mackerel-check-plugins`
 
@@ -143,7 +143,7 @@ apikey = "XXX"
 command = "check-procs -p nginx -W 2 -C 2 --user nginx"
 ```
 
-### Fluentd(td-agent)を監視
+## Fluentd(td-agent)を監視
 
 `# ps -ef | grep td-agent`
 ```
@@ -198,7 +198,7 @@ service mackerel-agent start
 diff -su /tmp/id id   # 違うと出ていればOK
 ```
 
-## AWSのマネージドサービスを監視する
+# AWSのマネージドサービスを監視する
 
 - AWSとマカレルを連携する方法
   - `https://mackerel.io/ja/docs/entry/integrations/aws`
