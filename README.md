@@ -190,6 +190,29 @@ Procs OK: Found 1 matching processes; cmd //usr/sbin/redis-server/; user /redis/
 command = "check-procs -p /usr/sbin/redis-server -W 1 -C 1 --user redis"
 ```
 
+## ログ監視(1分間)
+- `which check-log`
+> /usr/local/bin/check-log
+
+- `/etc/mackerel-agent/mackerel-agent.conf`
+```
+[plugin.checks.jenkins-log-ERROR]
+command = "/usr/local/bin/check-log --file /var/log/jenkins/jenkins.log --pattern 'SUCCESS' --warning-over 1 --critical-over 10 --return"
+```
+- [オプション説明]
+```
+/usr/local/bin/check-log: Command-Path
+--warning-over 1: 2回以上でアラート検知　- 
+--return: 検知した行を通知時に表示させる
+```
+
+- 検知させたログ（サンプル）
+```
+11 29, 2017 2:44:04 午前 hudson.model.Run execute
+情報: get_instanceInfo #18 main build action completed: SUCCESS
+```
+
+
 ### 退役ホストを戻す
 ```
 service mackerel-agent stop
