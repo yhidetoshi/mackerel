@@ -217,7 +217,7 @@ command = "/usr/local/bin/check-log --file /var/log/jenkins/jenkins.log --patter
 - 確認
 `$ rpm -ql mackerel-agent-plugins`
 
-## MongoDBのプラグインを利用する
+### MongoDBのプラグインを利用する
 - コマンドパスを確認する
   - `which mackerel-plugin-mongodb`
 ```
@@ -229,6 +229,13 @@ command = "/usr/local/bin/check-log --file /var/log/jenkins/jenkins.log --patter
 [plugin.metrics.mongodb]
 command = "/usr/bin/mackerel-plugin-mongodb"
 ```
+
+### Redisのプラグインを利用する
+```
+[plugin.metrics.redis]
+command = "/usr/bin/mackerel-plugin-redis -port=6379 -timeout=5"
+```
+
 
 ### 退役ホストを戻す
 ```
