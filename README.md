@@ -212,6 +212,23 @@ command = "/usr/local/bin/check-log --file /var/log/jenkins/jenkins.log --patter
 情報: get_instanceInfo #18 main build action completed: SUCCESS
 ```
 
+# Mackerel公式のカスタムプラグインを使う
+- `$ sudo yum install mackerel-agent-plugins -y`
+- 確認
+`$ rpm -ql mackerel-agent-plugins`
+
+## MongoDBのプラグインを利用する
+- コマンドパスを確認する
+  - `which mackerel-plugin-mongodb`
+```
+/usr/bin/mackerel-plugin-mongodb
+```
+
+- `/etc/mackerel-agent/mackerel-agent.conf`
+```
+[plugin.metrics.mongodb]
+command = "/usr/bin/mackerel-plugin-mongodb"
+```
 
 ### 退役ホストを戻す
 ```
