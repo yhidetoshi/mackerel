@@ -276,8 +276,8 @@ $ sudo yum erase mackerel-agent
 `> msiexec /qn /i mackerel-agent-latest.msi APIKEY="XXX"`
 
 
-### Mac上でwindows-serverに配置するバイナリファイルをクロスコンパイルする
-- git clone https://github.com/mackerelio/go-check-plugins.git
+#### Mac上でwindows-serverに配置するバイナリファイルをクロスコンパイルする
+- `git clone https://github.com/mackerelio/go-check-plugins.git`
 
 (自分の環境に合わせて実施)
 - GOPATH="/Users/yajima/Mackerel-win-build/go-check-plugins/check-procs" 
@@ -300,6 +300,7 @@ $ mv main.go check_procs_windows.exe
 - 利用するfile. (mac上でクロスコンパイルして配布しなくてもデフォルトで生成されてあった)
 `check-procs.exe`
 
+#### Windows-serverに監視を仕込む設定
 - mackerel-agent.confを編集する。(ex) bashプロセスをテストで監視してみる)
 
 ```
