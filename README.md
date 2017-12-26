@@ -265,3 +265,46 @@ $ sudo yum erase mackerel-agent
   - 死活監視はmackerel-agentからのメトリックの定期投稿を監視しています。
   - 一定期間この投稿がない場合、Mackerelはそのホストに異常が発生したと判断してアラートを発生させます。
     - 約7分間データの投稿がないと死活監視にひっかかりました。
+
+## Windwos-serverで利用する
+
+- 検証環境
+  - AWS Windows-server2012R2
+
+- Powershellにて実行
+
+`> msiexec /qn /i mackerel-agent-latest.msi APIKEY="XXX"`
+
+
+### Mac上でwindows-serverに配置するバイナリファイルをクロスコンパイルする
+- git clone https://github.com/mackerelio/go-check-plugins.git
+
+(自分の環境に合わせて実施)
+- GOPATH="/Users/yajima/Mackerel-win-build/go-check-plugins/check-procs" 
+- `pwd`
+`/Users/yajima/Mackerel-win-build/go-check-plugins/check-procs` で以下のコマンドを実行
+```
+$ go get github.com/mackerelio/go-check-plugins/check-procs
+$ go get github.com/mackerelio/go-check-plugins/check-procs
+$ go get github.com/StackExchange/wmi
+$ go get github.com/go-ole/go-ole
+$ GOOS=windows GOARCH=amd64 go build -o main.go
+$ mv main.go check_procs_windows.exe
+-> .exeをwindows-serverへ展開する
+```
+
+- パス(mackerel-agentをインストールすると以下のパスが生成されていた)
+C:\Program Files (x86)\Mackerel\mackerel-agent
+
+- 利用するfile. (mac上でクロスコンパイルして配布しなくてもデフォルトで生成されてあった)
+`check-procs.exe`
+
+- mackerel-agent.confを編集する。(ex) bashプロセスをテストで監視してみる)
+
+```
+[plugin.checks.check-bash]
+command = "C:\\Program Files (x86)\\Mackerel\\mackerel-agent\\check-procs.exe --pattern bash"
+```
+
+- mackerel-agentのプロセスを再起動する
+- task-managerからサービスを選択し、 `mackerel-agent` を選択し restartする。
