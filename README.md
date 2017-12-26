@@ -293,8 +293,9 @@ $ mv main.go check_procs_windows.exe
 -> .exeをwindows-serverへ展開する
 ```
 
-- パス(mackerel-agentをインストールすると以下のパスが生成されていた)
-C:\Program Files (x86)\Mackerel\mackerel-agent
+- パス(mackerel-agentをインストールすると以下のパスが生成されていた -> 監視対象によっては、Mackerelがデフォルトで用意してくれているのでクロスコンパイルする必要なし) ※ 今回はプロセス監視だったので、上記のクロスコンパイルの処理は必要なかった。
+
+`C:\Program Files (x86)\Mackerel\mackerel-agent`
 
 - 利用するfile. (mac上でクロスコンパイルして配布しなくてもデフォルトで生成されてあった)
 `check-procs.exe`
