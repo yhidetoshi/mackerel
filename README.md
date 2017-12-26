@@ -266,7 +266,7 @@ $ sudo yum erase mackerel-agent
   - 一定期間この投稿がない場合、Mackerelはそのホストに異常が発生したと判断してアラートを発生させます。
     - 約7分間データの投稿がないと死活監視にひっかかりました。
 
-## Windwos-serverで利用する
+## Windows-serverで利用する
 
 - 検証環境
   - AWS Windows-server2012R2
