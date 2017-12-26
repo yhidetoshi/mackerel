@@ -271,7 +271,7 @@ $ sudo yum erase mackerel-agent
 - 検証環境
   - AWS Windows-server2012R2
 
-- Powershellにて実行
+- Mackerel-agentをインストール ( Powershellにて実行 )
 
 `> msiexec /qn /i mackerel-agent-latest.msi APIKEY="XXX"`
 
