@@ -285,7 +285,6 @@ $ sudo yum erase mackerel-agent
 `/Users/yajima/Mackerel-win-build/go-check-plugins/check-procs` で以下のコマンドを実行
 ```
 $ go get github.com/mackerelio/go-check-plugins/check-procs
-$ go get github.com/mackerelio/go-check-plugins/check-procs
 $ go get github.com/StackExchange/wmi
 $ go get github.com/go-ole/go-ole
 $ GOOS=windows GOARCH=amd64 go build -o main.go
