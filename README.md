@@ -307,5 +307,11 @@ $ mv main.go check_procs_windows.exe
 command = "C:\\Program Files (x86)\\Mackerel\\mackerel-agent\\check-procs.exe --pattern bash"
 ```
 
+もしくは
+
+- `check-procs.exe` を `/usr/bin/` に配置
+- `$ which check-procs`
+- `command = "check-procs --pattern bash"` を設定する
+
 - mackerel-agentのプロセスを再起動する
 - task-managerからサービスを選択し、 `mackerel-agent` を選択し restartする。
