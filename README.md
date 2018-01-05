@@ -310,7 +310,7 @@ command = "C:\\Mackerel\\check-procs.exe -C 1 --pattern powershell"
 
 もしくは git-bashで設定している場合（おすすめしない）
 
-- `check-procs.exe` を `/usr/bin/` に配置
+- `check-procs.exe` を `C:\Program Files\Git\usr\bin` に配置
 - `$ which check-procs`
 - `command = "check-procs --pattern bash"` を設定する
 
