@@ -304,10 +304,11 @@ $ mv main.go check_procs_windows.exe
 
 ```
 [plugin.checks.check-bash]
-command = "C:\\Program Files (x86)\\Mackerel\\mackerel-agent\\check-procs.exe --pattern bash"
+#command = "C:\\Program Files (x86)\\Mackerel\\mackerel-agent\\check-procs.exe --pattern bash"
+command = "C:\\Mackerel\\check-procs.exe -C 1 --pattern powershell"
 ```
 
-もしくは
+もしくは git-bashで設定している場合（おすすめしない）
 
 - `check-procs.exe` を `/usr/bin/` に配置
 - `$ which check-procs`
