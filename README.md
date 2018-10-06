@@ -52,7 +52,7 @@ GLOBAL OPTIONS:
   - ホスト一覧を取得
     - サービスに紐づくホスト一覧を取得(退役ホストを除く)
         - `$ mkr hosts --service <SERVICENAME>`
-        - `$ mkr hosts --service Beaconnect-Prd | jq '.[].name'`
+        - `$ mkr hosts --service hoge | jq '.[].name'`
   - ホストが(working|standby|poweroff|maintenance)状態のインスタンスを取得
       - `mkr hosts --status working`
       - `mkr hosts --status standby`
